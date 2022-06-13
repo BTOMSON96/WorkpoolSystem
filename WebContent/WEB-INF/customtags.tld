@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="https://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://java.sun.com/xml/ns/j2ee https://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<description>Calendar Formatter Custom Tag</description>
+	<tlib-version>2.1</tlib-version>
+	<short-name>w</short-name>
+	<uri>WEB-INF/customtags.tld</uri>
+
+	<tag>
+		<name>formatCalendar</name>
+		<tag-class>com.workpool.customtags.CalendarFormatTag</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>calendar</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.util.Calendar</type>
+		</attribute>
+
+		<attribute>
+			<name>format</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.util.String</type>
+		</attribute>
+
+	</tag>
+
+	<tag>
+		<name>workpoolLink</name>
+		<tag-class>com.workpool.customtags.LinkTag</tag-class>
+		<body-content>scriptless</body-content>
+
+		<attribute>
+			<name>url</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.util.String</type>
+		</attribute>
+		
+		<attribute>
+			<name>link_name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.util.String</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>param</name>
+		<tag-class>com.workpool.customtags.InnerTag</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

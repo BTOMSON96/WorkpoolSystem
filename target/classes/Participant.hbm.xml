@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 May 2022 1:58:13 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+
+    <class name="com.workpool.entity.Participant" table="PARTICIPANT">
+    
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="increment"  />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        
+        
+        
+        
+        <joined-subclass name="com.workpool.entity.Resource" extends="com.workpool.entity.Participant" table="RESOURCE">
+            
+            <key column="id" />
+            
+              <property name="lastName" type="java.lang.String" access="field">
+              <column name="lastname" not-null="true" length="50" />
+              </property>
+              <property name="dob" type="java.util.Calendar" not-null="true" update="false">
+              <column name="dob" />
+              </property>
+              <property name="address" type="java.lang.String">
+              <column name="address" length="50" />
+              </property>
+              <property name="email" type="java.lang.String">
+              <column name="email"  length="50"/>
+              </property>
+               <property name="username" type="java.lang.String">
+              <column name="username" length="50"/>
+              </property>
+              <property name="password" type="java.lang.String">
+             <column name="password"   length="30"/>
+             </property>
+             <property name="isActive" type="java.lang.Boolean">
+             <column name="active"  not-null="true" />
+             </property>
+             <many-to-one name="manager" class="com.workpool.entity.Resource" unique="false" ></many-to-one>
+             <property name="isAdmin" type="java.lang.Boolean">
+             <column name="isadmin"  not-null="true" />
+             </property>
+            <property name="type">
+            <column name="type" length="10"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="type">12</param>
+                <param name="enumClass">com.workpool.enums.ResourceType</param>
+            </type>
+           </property>
+           
+            <set name="groups" table="group_resource" inverse="true" lazy="true" fetch="select">
+            <key column="resource_id"></key>
+            <many-to-many class="com.workpool.entity.Group" column="group_id"> </many-to-many>
+            </set>
+        </joined-subclass>
+        
+        
+        
+        <joined-subclass name="com.workpool.entity.Group" extends="com.workpool.entity.Participant" table="RESOURCE_GROUP">
+        
+               <key column="id" />
+        
+              <many-to-one name="manager" class="com.workpool.entity.Resource" fetch="join">
+              <column name="manager" />
+              </many-to-one>
+        
+             <many-to-one name="qualityAssurer" class="com.workpool.entity.Resource" fetch="join">
+             <column name="quality_assurer" />
+             </many-to-one>
+        
+            <set name="resources" table="group_resource" inverse="false" >
+             <key>
+            <column name="group_id" not-null="true"></column>
+            </key>
+            <many-to-many class="com.workpool.entity.Resource"> 
+            <column name="resource_id" not-null="true"></column>
+            </many-to-many>
+            </set>
+        </joined-subclass>
+        
+    </class>
+    
+    
+</hibernate-mapping>

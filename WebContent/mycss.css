@@ -1,0 +1,64 @@
+table, th, td {
+	border: 1px solid;
+	word-wrap: break-word;
+}
+
+th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+}
+
+body {
+	font-family: verdana;
+	font-size: 14px;
+	background-color: lightblue;
+}
+
+h3 {
+	color: white;
+	text-align: center;
+}
+
+.header {
+	background-color: lightblue;
+	padding: 20px;
+	text-align: center;
+}
+
+#myTable tr.header, #myTable tr:hover {
+	background-color: #f1f1f1;
+}
+
+.center-block {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: lightblue;
+	color: white;
+	cursor: pointer;
+	
+}
+
+.errorLabel {
+	color: red;
+	font-size: 12px;
+}
+
+.container {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+
+
+.botomnav {
+	overflow: hidden;
+	background-color: GREY;
+}
+
+.lblbold {
+	font-weight: bold;
+	color: white;
+	font-size: 15px;
+}

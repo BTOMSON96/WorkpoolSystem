@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 07 Mar 2022 12:51:17 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.workpool.entity.EntryFolder" table="ENTRY_FOLDER">
+      <id name="id" type="long">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" not-null="true" length="50"/>
+        </property>
+        <property name="date_created" type="java.util.Calendar">
+            <column name="date_created" />
+        </property>
+        <property name="date_modified" type="java.util.Calendar">
+            <column name="date_modified" />
+        </property>
+    </class>
+</hibernate-mapping>

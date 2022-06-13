@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 07 Mar 2022 3:08:46 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.workpool.entity.TaskType" table="TASK_TYPE">
+       <id name="id" type="long">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" not-null="true" length="50"/>
+        </property>
+    </class>
+</hibernate-mapping>
